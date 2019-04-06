@@ -1,0 +1,27 @@
+This is a simple blog rest application based ob Spring Boot and H2.
+For startup application you need to copy repository and run Application.java from idea.
+
+#default users
+FirstUser : firstPassword
+SecondUser : secondPassword
+ThirdUser : thirdPassword
+
+#curl requests for testing
+
+#create new post
+curl --user FirstUser:firstPassword -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d 'Text Message' localhost:8080/blog
+
+#update message
+curl --user FirstUser:firstPassword -H "Content-Type: application/json" -H "Accept: application/json" -X PUT -d '{"id": 1, "text": "New Message"}' localhost:8080/blog
+
+#delete message
+curl --user FirstUser:firstPassword -H "Content-Type: application/json" -H "Accept: application/json" -X DELETE -d '1' localhost:8080/blog
+
+#get all posts
+curl --user FirstUser:firstPassword localhost:8080/blog
+
+#get my own posts
+curl --user FirstUser:firstPassword localhost:8080/bl/myMessages
+
+#get post by id
+curl --user FirstUser:firstPassword localhost:8080/blog/1
